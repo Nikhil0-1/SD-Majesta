@@ -1,0 +1,832 @@
+/* ========================================
+   HORIZON PROJECT PAGE STYLING
+   Matte Black, Champagne Gold, Minimal Architecture
+   ======================================== */
+
+.horizon-page {
+  padding-top: 80px;
+  background-color: var(--black);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.horizon-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 100px 0 60px;
+  overflow: hidden;
+}
+
+.horizon-hero__bg-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.horizon-hero__bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  animation: subtleZoom 18s ease-out infinite alternate;
+}
+
+@keyframes subtleZoom {
+  0% { transform: scale(1.0); }
+  100% { transform: scale(1.08); }
+}
+
+.horizon-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 7, 7, 0.4) 0%,
+    rgba(7, 7, 7, 0.75) 60%,
+    var(--black) 100%
+  );
+}
+
+.horizon-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.horizon-hero__breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--text-muted);
+}
+
+.breadcrumb-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color var(--duration-fast);
+}
+
+.breadcrumb-link:hover {
+  color: var(--gold-light);
+}
+
+.breadcrumb-sep {
+  color: var(--border-gold);
+}
+
+.breadcrumb-current {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.horizon-hero__tag {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid var(--border-gold);
+  background: rgba(200, 169, 110, 0.1);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+.horizon-hero__title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 5.5vw, 4.8rem);
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--gold-bright);
+  margin-bottom: 20px;
+}
+
+.horizon-hero__title span {
+  display: block;
+  font-size: clamp(1.1rem, 2vw, 1.8rem);
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.horizon-hero__subtitle {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin-bottom: 40px;
+}
+
+.horizon-hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 24px 32px;
+  background: rgba(14, 14, 14, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.horizon-stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.horizon-stat .stat-val {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--gold-light);
+  line-height: 1.2;
+}
+
+.horizon-stat .stat-lbl {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.horizon-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: var(--border);
+}
+
+/* Overview Section */
+.horizon-overview {
+  padding: 100px 0;
+}
+
+.horizon-overview__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.horizon-p {
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.horizon-spec-pills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.spec-pill {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+}
+
+.horizon-overview__image-wrapper {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.horizon-overview__img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+.horizon-overview__badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  padding: 18px 24px;
+  background: rgba(10, 10, 10, 0.88);
+  backdrop-filter: blur(10px);
+  border-left: 3px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+}
+
+.horizon-overview__badge .gold-text {
+  color: var(--gold);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.horizon-overview__badge span:last-child {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Residences & Floor Plans */
+.horizon-residences {
+  padding: 100px 0;
+  background: var(--black-soft);
+}
+
+.residences-header {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 50px;
+}
+
+.residences-desc {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.plans-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.plan-tab {
+  background: var(--black-card);
+  border: 1px solid var(--border);
+  padding: 24px 20px;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all var(--duration-base) var(--ease-luxury);
+  display: flex;
+  flex-direction: column;
+}
+
+.plan-tab:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-2px);
+}
+
+.plan-tab--active {
+  border-color: var(--gold);
+  background: rgba(200, 169, 110, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.plan-tab__badge {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.plan-tab__title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.plan-tab__area {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.plan-detail-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 50px;
+  background: var(--black);
+  border: 1px solid var(--border);
+  padding: 48px;
+  border-radius: 6px;
+  align-items: center;
+}
+
+.plan-detail-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.plan-detail-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+}
+
+.plan-detail-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.spec-box {
+  background: var(--black-soft);
+  padding: 16px;
+  border-left: 2px solid var(--gold);
+}
+
+.spec-box__label {
+  display: block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.spec-box__value {
+  font-size: 1.15rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.plan-highlights {
+  margin-bottom: 36px;
+}
+
+.highlights-title {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 14px;
+}
+
+.highlights-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.highlights-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.gold-check {
+  color: var(--gold);
+  font-weight: bold;
+}
+
+.plan-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.plan-detail-render {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.plan-render-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  display: block;
+}
+
+.plan-render-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 14px 20px;
+  background: rgba(7, 7, 7, 0.85);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+}
+
+/* Signature Amenities */
+.horizon-amenities-section {
+  padding: 100px 0;
+}
+
+.amenities-intro {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 60px;
+}
+
+.amenities-subtext {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+.amenities-grid-luxury {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.luxury-amenity-card {
+  position: relative;
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  padding: 36px 30px;
+  border-radius: 4px;
+  transition: all var(--duration-base) var(--ease-luxury);
+  overflow: hidden;
+}
+
+.luxury-amenity-card:hover {
+  border-color: var(--border-gold);
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.card-glow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(200, 169, 110, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Gallery Showcase */
+.horizon-gallery-section {
+  padding: 80px 0 100px;
+}
+
+.gallery-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+}
+
+.gallery-hint {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.horizon-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-card-item {
+  position: relative;
+  height: 280px;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--border);
+}
+
+.gallery-card-item.span-two {
+  grid-column: span 2;
+}
+
+.gallery-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-luxury);
+}
+
+.gallery-card-item:hover .gallery-thumb {
+  transform: scale(1.06);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(7, 7, 7, 0.9) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  transition: all var(--duration-base);
+}
+
+.item-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.item-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #fff;
+  margin: 4px 0 8px;
+}
+
+.item-expand-btn {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all var(--duration-fast);
+}
+
+.gallery-card-item:hover .item-expand-btn {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--gold-light);
+}
+
+/* Booking Section */
+.horizon-booking {
+  padding: 100px 0;
+  background: var(--black-soft);
+  border-top: 1px solid var(--border);
+}
+
+.booking-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.booking-p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 36px;
+}
+
+.booking-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.booking-contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon {
+  font-size: 1.4rem;
+  padding: 8px;
+  background: var(--black);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.booking-contact-item .lbl {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.booking-contact-item .val {
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  text-decoration: none;
+}
+
+.booking-form-wrap {
+  background: var(--black);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: 6px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.form-header-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--gold-light);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.horizon-inquiry-form .input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+.horizon-inquiry-form label {
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.horizon-inquiry-form input,
+.horizon-inquiry-form select,
+.horizon-inquiry-form textarea {
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color var(--duration-fast);
+}
+
+.horizon-inquiry-form input:focus,
+.horizon-inquiry-form select:focus,
+.horizon-inquiry-form textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.horizon-inquiry-form .input-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.btn-full {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.booking-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.booking-success .success-mark {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: rgba(200, 169, 110, 0.15);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+}
+
+.booking-success h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.booking-success p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+/* Lightbox Modal */
+.lightbox-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+}
+
+.lightbox-large-img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--border);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: color var(--duration-fast);
+}
+
+.lightbox-close:hover {
+  color: var(--gold);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .horizon-overview__grid,
+  .plan-detail-card,
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .amenities-grid-luxury {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plans-nav {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .horizon-hero__stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .horizon-stat-divider {
+    display: none;
+  }
+
+  .horizon-gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-card-item.span-two {
+    grid-column: span 1;
+  }
+
+  .amenities-grid-luxury {
+    grid-template-columns: 1fr;
+  }
+
+  .horizon-spec-pills,
+  .horizon-inquiry-form .input-row {
+    grid-template-columns: 1fr;
+  }
+}

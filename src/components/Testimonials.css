@@ -1,0 +1,118 @@
+/* ========================================
+   TESTIMONIALS / VOICES OF DISTINCTION
+   ======================================== */
+
+.testimonials-section {
+  padding: 100px 0;
+  background: var(--black-soft);
+  border-top: 1px solid var(--border);
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.testimonials-slider {
+  position: relative;
+  max-width: 840px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.quote-mark {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  line-height: 0.8;
+  color: var(--gold);
+  opacity: 0.4;
+  margin-bottom: 20px;
+}
+
+.testimonial-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: 32px;
+  min-height: 110px;
+}
+
+.testimonial-author-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 40px;
+}
+
+.author-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--gold-light);
+}
+
+.author-role {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.author-residence {
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 4px;
+}
+
+.slider-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.slider-nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--black);
+  border: 1px solid var(--border);
+  color: var(--gold-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--duration-fast);
+}
+
+.slider-nav-btn:hover {
+  border-color: var(--gold);
+  background: rgba(200, 169, 110, 0.1);
+  transform: scale(1.08);
+}
+
+.slider-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.slider-dot--active {
+  background: var(--gold);
+  border-color: var(--gold);
+  transform: scale(1.2);
+}

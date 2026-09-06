@@ -1,0 +1,124 @@
+.footer {
+  padding: 80px 0 40px;
+  background: var(--black);
+  border-top: 1px solid var(--border);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer__logo {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.footer__logo-sd {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.footer__logo-majesta {
+  font-size: 0.55rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--gold);
+}
+
+.footer__tagline {
+  font-size: 0.85rem;
+  color: var(--grey);
+  font-weight: 300;
+  font-style: italic;
+}
+
+.footer__col-title {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.footer__col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer__link {
+  font-size: 0.88rem;
+  color: var(--grey);
+  font-weight: 300;
+  transition: color var(--duration-fast);
+}
+
+.footer__link:hover {
+  color: var(--gold);
+}
+
+.footer__address {
+  cursor: default;
+}
+
+.footer__divider {
+  height: 1px;
+  background: var(--border);
+  margin-bottom: 28px;
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer__copy {
+  font-size: 0.78rem;
+  color: var(--grey-dark);
+  font-weight: 300;
+}
+
+.footer__legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer__legal-link {
+  font-size: 0.75rem;
+  color: var(--grey-dark);
+  font-weight: 400;
+  transition: color var(--duration-fast);
+}
+
+.footer__legal-link:hover {
+  color: var(--gold);
+}
+
+@media (max-width: 900px) {
+  .footer__top {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer__top {
+    grid-template-columns: 1fr;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}

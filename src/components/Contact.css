@@ -1,0 +1,136 @@
+.contact {
+  padding: var(--section-padding);
+  background: var(--black-soft);
+}
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.contact__details {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-bottom: 40px;
+}
+
+.contact__detail-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.contact__detail-value {
+  font-size: 1rem;
+  color: var(--grey-light);
+  line-height: 1.7;
+  font-weight: 300;
+  transition: color var(--duration-fast);
+}
+
+a.contact__detail-value:hover {
+  color: var(--gold);
+}
+
+.contact__map-btn {
+  font-size: 0.68rem;
+}
+
+/* Form */
+.contact__form {
+  background: var(--charcoal);
+  border: 1px solid var(--border);
+  padding: 48px;
+}
+
+.contact__form-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 500;
+  margin-bottom: 36px;
+}
+
+.contact__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.contact__field {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.contact__field input,
+.contact__field textarea,
+.contact__field select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 0;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--white);
+  outline: none;
+  transition: border-color var(--duration-fast);
+  resize: vertical;
+}
+
+.contact__field select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.contact__field input::placeholder,
+.contact__field textarea::placeholder {
+  color: var(--grey-dark);
+}
+
+.contact__field input:focus,
+.contact__field textarea:focus,
+.contact__field select:focus {
+  border-color: var(--gold);
+}
+
+.contact__field-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: var(--gold);
+  transition: width var(--duration-base) var(--ease-luxury);
+}
+
+.contact__field input:focus ~ .contact__field-line,
+.contact__field textarea:focus ~ .contact__field-line,
+.contact__field select:focus ~ .contact__field-line {
+  width: 100%;
+}
+
+.contact__submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .contact__form {
+    padding: 32px 24px;
+  }
+  .contact__row {
+    grid-template-columns: 1fr;
+  }
+}

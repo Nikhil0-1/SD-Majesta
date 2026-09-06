@@ -1,0 +1,410 @@
+/* ========================================
+   WHATSAPP LUXURY CONCIERGE WIDGET
+   Matte Black, Champagne Gold, WhatsApp Emerald
+   ======================================== */
+
+.wa-widget-container {
+  position: fixed;
+  bottom: 28px;
+  left: 28px;
+  z-index: 999;
+  font-family: var(--font-body);
+}
+
+/* Floating Toggle Button */
+.wa-toggle-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 18px 8px 10px;
+  background: rgba(14, 14, 14, 0.94);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-gold);
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(200, 169, 110, 0.2);
+  transition: all var(--duration-base) var(--ease-luxury);
+}
+
+.wa-toggle-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  border-color: var(--gold);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 28px rgba(200, 169, 110, 0.35);
+}
+
+.wa-btn-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  transition: transform var(--duration-base);
+}
+
+.wa-toggle-btn:hover .wa-btn-icon-wrapper {
+  transform: scale(1.08);
+}
+
+.wa-close-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.wa-toggle-ping {
+  position: absolute;
+  top: 8px;
+  left: 38px;
+  width: 10px;
+  height: 10px;
+  background: #25D366;
+  border-radius: 50%;
+  border: 2px solid #000;
+  animation: pingPulse 2s infinite;
+}
+
+@keyframes pingPulse {
+  0% { transform: scale(0.9); opacity: 1; }
+  70% { transform: scale(2); opacity: 0; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+
+.wa-toggle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold-light);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.wa-label-status {
+  width: 6px;
+  height: 6px;
+  background: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #25D366;
+}
+
+/* Chat Card Window */
+.wa-chat-card {
+  position: absolute;
+  bottom: 70px;
+  left: 0;
+  width: 380px;
+  max-width: calc(100vw - 40px);
+  background: var(--black-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 35px rgba(200, 169, 110, 0.15);
+  overflow: hidden;
+  animation: cardSlideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes cardSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Card Header */
+.wa-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 20px;
+  background: rgba(20, 20, 20, 0.95);
+  border-bottom: 1px solid var(--border);
+}
+
+.wa-avatar-wrap {
+  position: relative;
+}
+
+.wa-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--black);
+  font-weight: 700;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.05em;
+}
+
+.wa-online-dot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  background: #25D366;
+  border-radius: 50%;
+  border: 2px solid var(--black);
+}
+
+.wa-header-info {
+  flex: 1;
+}
+
+.wa-header-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--gold-light);
+  margin-bottom: 2px;
+}
+
+.wa-header-sub {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.wa-header-close {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--duration-fast);
+}
+
+.wa-header-close:hover {
+  color: #fff;
+}
+
+/* Card Body */
+.wa-card-body {
+  padding: 18px 20px;
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.wa-card-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.wa-card-body::-webkit-scrollbar-thumb {
+  background: var(--border-gold);
+  border-radius: 2px;
+}
+
+.wa-bubble-intro {
+  background: rgba(30, 30, 30, 0.6);
+  border-left: 2px solid var(--gold);
+  padding: 10px 14px;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  border-radius: 4px;
+}
+
+.wa-bubble-intro strong {
+  color: var(--gold-light);
+}
+
+/* Options */
+.wa-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wa-option-pill {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--duration-fast);
+}
+
+.wa-option-pill:hover {
+  background: rgba(200, 169, 110, 0.08);
+  border-color: var(--border-gold);
+  transform: translateX(3px);
+}
+
+.wa-option-pill--active {
+  background: rgba(200, 169, 110, 0.14);
+  border-color: var(--gold);
+}
+
+.wa-option-pill__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.wa-option-pill__title {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.wa-option-pill--active .wa-option-pill__title {
+  color: var(--gold-bright);
+}
+
+.wa-option-pill__tag {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.wa-option-pill__arrow {
+  color: var(--gold);
+  font-size: 0.9rem;
+  transition: transform var(--duration-fast);
+}
+
+.wa-option-pill:hover .wa-option-pill__arrow {
+  transform: translateX(3px);
+}
+
+/* Name Field */
+.wa-name-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.wa-name-field label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.wa-name-field input {
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+}
+
+.wa-name-field input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+/* Preview Box */
+.wa-preview-box {
+  background: rgba(10, 10, 10, 0.8);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+
+.wa-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.wa-preview-title {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+
+.wa-preview-status {
+  font-size: 0.65rem;
+  color: #25D366;
+  font-weight: 500;
+}
+
+.wa-preview-textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  resize: none;
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.wa-preview-textarea:focus {
+  outline: none;
+  color: var(--text-primary);
+}
+
+/* Footer CTA */
+.wa-card-footer {
+  padding: 14px 20px 16px;
+  background: rgba(16, 16, 16, 0.95);
+  border-top: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wa-send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px 18px;
+  background: #25D366;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.wa-send-btn:hover {
+  background: #20BD5A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+}
+
+.wa-footer-note {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .wa-widget-container {
+    bottom: 20px;
+    left: 16px;
+  }
+
+  .wa-chat-card {
+    width: calc(100vw - 32px);
+    bottom: 64px;
+  }
+}

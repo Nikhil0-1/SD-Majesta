@@ -1,0 +1,172 @@
+/* ========================================
+   BROCHURE MODAL STYLES
+   ======================================== */
+
+.brochure-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.brochure-modal-card {
+  position: relative;
+  background: var(--black-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 8px;
+  width: 520px;
+  max-width: 100%;
+  padding: 40px;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9), 0 0 35px rgba(200, 169, 110, 0.2);
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.brochure-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--duration-fast);
+}
+
+.brochure-modal-close:hover {
+  color: var(--gold);
+}
+
+.brochure-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.brochure-modal-title {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+  line-height: 1.25;
+}
+
+.brochure-modal-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.brochure-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.brochure-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.brochure-field label {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.brochure-field input,
+.brochure-field select {
+  background: var(--black-soft);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  transition: border-color var(--duration-fast);
+}
+
+.brochure-field input:focus,
+.brochure-field select:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.brochure-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.privacy-text {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 6px;
+}
+
+.brochure-success {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.success-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(200, 169, 110, 0.15);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-size: 1.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.brochure-success h4 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+
+.brochure-success p {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 540px) {
+  .brochure-modal-card {
+    padding: 28px 20px;
+  }
+
+  .brochure-field-row {
+    grid-template-columns: 1fr;
+  }
+}
