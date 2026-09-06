@@ -2,14 +2,15 @@ import { useState, useId } from 'react';
 import './InvestmentCalculator.css';
 
 const RESIDENCE_PRESETS = [
-  { name: '3 BHK Royal Suite', price: 45000000, label: '₹4.50 Cr' },
-  { name: '4 BHK Imperial Suite', price: 72000000, label: '₹7.20 Cr' },
-  { name: '5 BHK Sky Penthouse', price: 145000000, label: '₹14.50 Cr' }
+  { name: '2 BHK Luxury', price: 5000000, label: '₹50 Lakh' },
+  { name: '3 BHK Royal Residence', price: 12500000, label: '₹1.25 Cr' },
+  { name: '4 BHK Imperial Suite', price: 35000000, label: '₹3.50 Cr' },
+  { name: '5 BHK Sky Penthouse', price: 85000000, label: '₹8.50 Cr' }
 ];
 
 export default function InvestmentCalculator() {
-  const [propertyPrice, setPropertyPrice] = useState(72000000);
-  const [downPaymentPercent, setDownPaymentPercent] = useState(25);
+  const [propertyPrice, setPropertyPrice] = useState(12500000);
+  const [downPaymentPercent, setDownPaymentPercent] = useState(20);
   const [tenureYears, setTenureYears] = useState(20);
   const [interestRate, setInterestRate] = useState(8.5);
 
@@ -37,7 +38,7 @@ export default function InvestmentCalculator() {
       return `₹${(val / 10000000).toFixed(2)} Cr`;
     }
     if (val >= 100000) {
-      return `₹${(val / 100000).toFixed(2)} Lakh`;
+      return `₹${(val / 100000).toFixed(1)} Lakh`;
     }
     return `₹${val.toLocaleString('en-IN')}`;
   };
@@ -46,10 +47,10 @@ export default function InvestmentCalculator() {
     <section className="inv-calc-section" id="investment-calculator">
       <div className="container">
         <div className="inv-calc-header">
-          <span className="section-subtitle">Financial Planning</span>
-          <h2 className="section-title">Luxury Residence Investment Estimator</h2>
+          <span className="section-subtitle">Financial Advisory</span>
+          <h2 className="section-title">Investment Estimator</h2>
           <p className="inv-calc-desc">
-            Calculate your acquisition outflow, bespoke customized down payments, and preferred monthly EMI schedules.
+            Tailor your acquisition plan with dynamic loan tenure and down payment modeling.
           </p>
         </div>
 
@@ -73,22 +74,22 @@ export default function InvestmentCalculator() {
           <div className="inv-calc-controls">
             <div className="calc-group">
               <div className="calc-group-header">
-                <label htmlFor={priceInputId}>Total Residence Valuation</label>
+                <label htmlFor={priceInputId}>Residence Valuation</label>
                 <span className="calc-val-badge">{formatCurrency(propertyPrice)}</span>
               </div>
               <input
                 id={priceInputId}
                 type="range"
-                min="30000000"
-                max="250000000"
-                step="2500000"
+                min="5000000"
+                max="200000000"
+                step="500000"
                 value={propertyPrice}
                 onChange={(e) => setPropertyPrice(Number(e.target.value))}
                 className="gold-slider"
               />
               <div className="slider-hints">
-                <span>₹3.0 Cr</span>
-                <span>₹25.0 Cr</span>
+                <span>₹50 Lakh</span>
+                <span>₹20 Cr</span>
               </div>
             </div>
 
@@ -100,7 +101,7 @@ export default function InvestmentCalculator() {
               <input
                 id={dpInputId}
                 type="range"
-                min="20"
+                min="15"
                 max="60"
                 step="5"
                 value={downPaymentPercent}
@@ -108,7 +109,7 @@ export default function InvestmentCalculator() {
                 className="gold-slider"
               />
               <div className="slider-hints">
-                <span>20%</span>
+                <span>15%</span>
                 <span>60%</span>
               </div>
             </div>
@@ -117,7 +118,7 @@ export default function InvestmentCalculator() {
               <div className="calc-group">
                 <div className="calc-group-header">
                   <label htmlFor={tenureInputId}>Tenure</label>
-                  <span className="calc-val-badge">{tenureYears} Years</span>
+                  <span className="calc-val-badge">{tenureYears} Yrs</span>
                 </div>
                 <input
                   id={tenureInputId}
@@ -161,8 +162,8 @@ export default function InvestmentCalculator() {
           {/* Results Summary Box */}
           <div className="inv-calc-results">
             <div className="results-header">
-              <span className="results-sub">Estimated Monthly Outflow</span>
-              <div className="results-emi">{formatCurrency(monthlyEmi)}<span>/month</span></div>
+              <span className="results-sub">Monthly Outflow</span>
+              <div className="results-emi">{formatCurrency(monthlyEmi)}<span>/mo</span></div>
             </div>
 
             <div className="results-breakdown-bar">
@@ -191,15 +192,15 @@ export default function InvestmentCalculator() {
 
             <div className="results-specs-list">
               <div className="spec-row">
-                <span>Down Payment Outlay</span>
+                <span>Down Payment</span>
                 <strong>{formatCurrency(downPaymentAmount)}</strong>
               </div>
               <div className="spec-row">
-                <span>Total Loan Amount</span>
+                <span>Loan Principal</span>
                 <strong>{formatCurrency(loanPrincipal)}</strong>
               </div>
               <div className="spec-row">
-                <span>Total Payment (Principal + Interest)</span>
+                <span>Total Outlay</span>
                 <strong>{formatCurrency(totalPayment)}</strong>
               </div>
             </div>
@@ -213,7 +214,7 @@ export default function InvestmentCalculator() {
                   document.querySelector('#connect')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                Request Custom Payment Schedule
+                Request Payment Schedule
               </a>
             </div>
           </div>

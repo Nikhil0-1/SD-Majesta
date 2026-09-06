@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { LockIcon, CheckIcon } from './Icons';
 import './BrochureModal.css';
 
 export default function BrochureModal({ isOpen, onClose }) {
@@ -33,23 +34,23 @@ export default function BrochureModal({ isOpen, onClose }) {
 
         <div className="brochure-modal-header">
           <span className="brochure-badge">Instant VIP Access</span>
-          <h3 className="brochure-modal-title">Download Horizon Architectural Dossier</h3>
+          <h3 className="brochure-modal-title">Horizon Architectural Dossier</h3>
           <p className="brochure-modal-desc">
-            Receive the official 48-page e-brochure containing detailed floor layouts, technical specifications, and current investment schedules.
+            Receive the official digital brochure containing floor layouts, technical specifications, and current investment schedules.
           </p>
         </div>
 
         {downloaded ? (
           <div className="brochure-success">
-            <div className="success-icon">✓</div>
+            <div className="success-icon"><CheckIcon /></div>
             <h4>Dossier Dispatched</h4>
-            <p>Your download has begun. An encrypted digital copy has also been sent to <strong>{formData.email}</strong>.</p>
+            <p>Your download has begun. A copy has also been sent to <strong>{formData.email}</strong>.</p>
             <button type="button" className="btn btn-gold" onClick={onClose}>Done</button>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="brochure-form">
             <div className="brochure-field">
-              <label htmlFor="b-name">Your Full Name *</label>
+              <label htmlFor="b-name">Full Name *</label>
               <input
                 id="b-name"
                 type="text"
@@ -62,7 +63,7 @@ export default function BrochureModal({ isOpen, onClose }) {
 
             <div className="brochure-field-row">
               <div className="brochure-field">
-                <label htmlFor="b-phone">Mobile Number *</label>
+                <label htmlFor="b-phone">Phone *</label>
                 <input
                   id="b-phone"
                   type="tel"
@@ -74,7 +75,7 @@ export default function BrochureModal({ isOpen, onClose }) {
               </div>
 
               <div className="brochure-field">
-                <label htmlFor="b-email">Email Address *</label>
+                <label htmlFor="b-email">Email *</label>
                 <input
                   id="b-email"
                   type="email"
@@ -87,7 +88,7 @@ export default function BrochureModal({ isOpen, onClose }) {
             </div>
 
             <div className="brochure-field">
-              <label htmlFor="b-residence">Preferred Residence Type</label>
+              <label htmlFor="b-residence">Preferred Residence</label>
               <select
                 id="b-residence"
                 value={formData.residence}
@@ -100,9 +101,11 @@ export default function BrochureModal({ isOpen, onClose }) {
             </div>
 
             <button type="submit" className="btn btn-gold btn-full">
-              Download Confidential Dossier
+              Download Dossier
             </button>
-            <span className="privacy-text">🔒 Strictly confidential. No spam guaranteed.</span>
+            <span className="privacy-text">
+              <LockIcon /> Strictly confidential client data
+            </span>
           </form>
         )}
       </div>

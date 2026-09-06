@@ -254,9 +254,29 @@
   border-color: var(--gold);
 }
 
+.wa-option-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: rgba(200, 169, 110, 0.1);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
+  flex-shrink: 0;
+  margin-right: 12px;
+}
+
+.wa-option-svg {
+  width: 16px;
+  height: 16px;
+}
+
 .wa-option-pill__text {
   display: flex;
   flex-direction: column;
+  flex: 1;
 }
 
 .wa-option-pill__title {

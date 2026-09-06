@@ -204,6 +204,19 @@
   color: var(--text-primary);
 }
 
+.spec-icon {
+  color: var(--gold);
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.spec-check-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--gold);
+}
+
 .horizon-overview__image-wrapper {
   position: relative;
   border-radius: 4px;
@@ -471,9 +484,22 @@
   transform: translateY(-5px);
 }
 
-.card-icon {
-  font-size: 2.2rem;
+.card-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  background: rgba(200, 169, 110, 0.08);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gold-light);
   margin-bottom: 20px;
+}
+
+.card-svg-icon {
+  width: 24px;
+  height: 24px;
 }
 
 .card-title {
@@ -622,12 +648,17 @@
   gap: 16px;
 }
 
-.contact-icon {
-  font-size: 1.4rem;
-  padding: 8px;
+.contact-icon-box {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--black);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-gold);
   border-radius: 4px;
+  color: var(--gold-light);
+  flex-shrink: 0;
 }
 
 .booking-contact-item .lbl {

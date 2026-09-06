@@ -1,37 +1,49 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import {
+  PillarIcon,
+  PoolIcon,
+  EcoIcon,
+  GymIcon,
+  CinemaIcon,
+  ShieldCheckIcon,
+  PhoneIcon,
+  MailIcon,
+  PinIcon,
+  CheckIcon
+} from '../components/Icons';
 import './ProjectHorizon.css';
 
 const horizonAmenities = [
   {
-    icon: '🏛️',
-    title: 'Double-Height Grand Lobby',
-    desc: 'Triple-volume Italian marble foyer with bespoke sculptural lighting and 24/7 white-glove concierge desk.'
+    IconComponent: PillarIcon,
+    title: 'Grand Entrance Foyer',
+    desc: 'Triple-volume Italian marble lobby with bespoke sculptural lighting and 24/7 concierge.'
   },
   {
-    icon: '🏊‍♂️',
-    title: 'Sky Infinity Pool & Deck',
-    desc: 'Heated infinity-edge pool perched high above the skyline with sun loungers and cabana service.'
+    IconComponent: PoolIcon,
+    title: 'Sky Infinity Pool',
+    desc: 'Temperature-controlled infinity pool perched above the skyline with private cabanas.'
   },
   {
-    icon: '🌿',
-    title: 'Zen Botanical Sanctuary',
-    desc: 'Acre-wide elevated tranquil greens with aromatic flora, meditation pavilions, and water cascades.'
+    IconComponent: EcoIcon,
+    title: 'Zen Sanctuary Gardens',
+    desc: 'Curated elevated greens, meditative pavilions, and tranquil cascading water features.'
   },
   {
-    icon: '🏋️',
-    title: 'Bespoke Wellness & Spa',
-    desc: 'State-of-the-art Technogym studio, private steam/sauna suites, yoga deck, and certified wellness trainers.'
+    IconComponent: GymIcon,
+    title: 'Artisan Wellness & Spa',
+    desc: 'Technogym-equipped fitness studio with private steam suites and yoga pavilion.'
   },
   {
-    icon: '🎬',
+    IconComponent: CinemaIcon,
     title: 'Private Screening Lounge',
-    desc: 'Acoustically treated 18-seat private cinema with Dolby Atmos surround sound and plush velvet recliners.'
+    desc: 'Acoustically tuned private cinema with Dolby Atmos surround audio and plush recliners.'
   },
   {
-    icon: '🛡️',
-    title: 'Multi-Tier Smart Security',
-    desc: 'Facial recognition access, biometric private elevator entry, 24/7 AI-monitored surveillance and safe zones.'
+    IconComponent: ShieldCheckIcon,
+    title: 'Multi-Tier Security',
+    desc: 'Biometric elevator access, touchless digital keys, and 24/7 guarded security ring.'
   }
 ];
 
@@ -40,48 +52,39 @@ const floorPlans = [
     type: '3 BHK Royal Residence',
     area: '2,450 Sq. Ft.',
     balconies: '2 Private Decks',
-    highlights: ['Corner unit orientation with 270° views', 'Master suite with walk-in wardrobe', 'Servant quarter with separate entry', 'Italian modular kitchen by Poliform'],
-    badge: 'Limited Availability'
+    highlights: ['Corner residence with 270° views', 'Master suite with walk-in wardrobe', 'Separate staff quarters', 'Italian modular kitchen'],
+    badge: 'Limited Series'
   },
   {
     type: '4 BHK Imperial Residence',
     area: '3,650 Sq. Ft.',
     balconies: '3 Expansive Terraces',
-    highlights: ['Double-height living and dining space', 'Private elevator access directly into foyer', 'Master bath with freestanding soaking tub', 'Smart home automation pre-wired'],
+    highlights: ['Double-height living space', 'Direct private elevator into foyer', 'Freestanding soaking tub in master bath', 'Integrated smart home automation'],
     badge: 'Signature Series'
   },
   {
     type: '5 BHK Sky Penthouse',
     area: '6,200 Sq. Ft.',
-    balconies: 'Private Rooftop Deck & Plunge Pool',
-    highlights: ['Crown level duplex living', 'Private temperature-controlled plunge pool', 'Dedicated party terrace and bar counter', '3 covered parking slots included'],
+    balconies: 'Private Rooftop & Plunge Pool',
+    highlights: ['Crown duplex sky living', 'Private temperature-controlled pool', 'Dedicated private entertaining terrace', '3 covered parking bays'],
     badge: 'Collector’s Edition'
   }
 ];
 
 const horizonGallery = [
   { src: '/assets/horizon_facade_1788700744631.jpg', title: 'Architectural Facade', tag: 'Exterior' },
-  { src: '/assets/penthouse_living_1788699627316.jpg', title: 'Penthouse Living Space', tag: 'Interior' },
-  { src: '/assets/lobby_interior_1788698961382.jpg', title: 'Triple-Height Grand Lobby', tag: 'Arrival' },
-  { src: '/assets/amenity_pool_zen_1788699479837.jpg', title: 'Sky Infinity Pool & Cabanas', tag: 'Amenities' },
+  { src: '/assets/penthouse_living_1788699627316.jpg', title: 'Penthouse Living Room', tag: 'Interior' },
+  { src: '/assets/lobby_interior_1788698961382.jpg', title: 'Grand Arrival Lobby', tag: 'Arrival' },
+  { src: '/assets/amenity_pool_zen_1788699479837.jpg', title: 'Sky Infinity Pool', tag: 'Amenities' },
   { src: '/assets/amenity_clubhouse_1788699091926.jpg', title: 'Private Members Club', tag: 'Lifestyle' },
-  { src: '/assets/amenity_fitness_1788699350560.jpg', title: 'Artisan Wellness Pavilion', tag: 'Fitness' }
+  { src: '/assets/amenity_fitness_1788699350560.jpg', title: 'Wellness Pavilion', tag: 'Fitness' }
 ];
 
 export default function ProjectHorizon() {
   const [selectedPlan, setSelectedPlan] = useState(1);
   const [lightboxImg, setLightboxImg] = useState(null);
-  const [brochureRequested, setBrochureRequested] = useState(false);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '', configuration: '4 BHK Imperial Residence', message: '' });
   const [submitted, setSubmitted] = useState(false);
-
-  const handleBrochureSubmit = (e) => {
-    e.preventDefault();
-    setBrochureRequested(true);
-    setTimeout(() => {
-      alert('Thank you. The official SD Majesta Horizon brochure will be sent to your email.');
-    }, 400);
-  };
 
   const handleInquirySubmit = (e) => {
     e.preventDefault();
@@ -116,28 +119,28 @@ export default function ProjectHorizon() {
             <span>Sky Residences & Penthouses</span>
           </h1>
           <p className="horizon-hero__subtitle">
-            An architectural statement in sheer elegance. Perched high above the horizon, redefine your living experience with unmatched space, privacy, and craftsmanship.
+            An architectural statement in timeless proportion, privacy, and craftsmanship.
           </p>
 
           <div className="horizon-hero__stats">
             <div className="horizon-stat">
               <span className="stat-val">32</span>
-              <span className="stat-lbl">Storeys of Grandeur</span>
+              <span className="stat-lbl">Storeys</span>
             </div>
             <div className="horizon-stat-divider" />
             <div className="horizon-stat">
               <span className="stat-val">74</span>
-              <span className="stat-lbl">Exclusive Residences</span>
+              <span className="stat-lbl">Residences</span>
             </div>
             <div className="horizon-stat-divider" />
             <div className="horizon-stat">
               <span className="stat-val">3 & 4 BHK</span>
-              <span className="stat-lbl">+ Sky Duplex Penthouses</span>
+              <span className="stat-lbl">+ Penthouses</span>
             </div>
             <div className="horizon-stat-divider" />
             <div className="horizon-stat">
               <span className="stat-val">Q4 2027</span>
-              <span className="stat-lbl">Possession Target</span>
+              <span className="stat-lbl">Possession</span>
             </div>
           </div>
         </div>
@@ -147,20 +150,32 @@ export default function ProjectHorizon() {
       <section className="horizon-overview container">
         <div className="horizon-overview__grid">
           <div className="horizon-overview__text">
-            <span className="section-subtitle">Architectural Philosophy</span>
-            <h2 className="section-title">Where Visionary Geometry Meets Uncompromised Comfort</h2>
+            <span className="section-subtitle">Design Philosophy</span>
+            <h2 className="section-title">Geometric Precision & Living Comfort</h2>
             <p className="horizon-p">
-              Designed by world-renowned architectural visionaries, Horizon is shaped to maximize light, wind flow, and infinite panoramic city views. Every surface has been curated with bespoke materials—from imported Italian Carrara marble to custom brushed gold hardware.
+              Engineered to maximize natural daylight, airflow, and 270-degree skyline vistas. Hand-selected Carrara marble and custom architectural bronze appointments define every residence.
             </p>
             <p className="horizon-p">
-              Each sky residence offers a dedicated private elevator foyer, expansive wrapped balconies, high acoustic ceiling isolation, and effortless smart home automation controlling climate, ambiance, and motorized shading.
+              Each sky suite features private elevator foyer access, high acoustic insulation, and seamless touchless automation.
             </p>
             
             <div className="horizon-spec-pills">
-              <div className="spec-pill"><span>📐</span> 11.5 Ft Clear Ceiling Height</div>
-              <div className="spec-pill"><span>🪟</span> Low-E Floor-to-Ceiling Thermal Glazing</div>
-              <div className="spec-pill"><span>🌿</span> IGBC Gold Certified Green Building</div>
-              <div className="spec-pill"><span>🔑</span> Biometric Touchless Elevator Access</div>
+              <div className="spec-pill">
+                <CheckIcon className="spec-icon" />
+                <span>11.5 Ft Clear Ceiling Height</span>
+              </div>
+              <div className="spec-pill">
+                <CheckIcon className="spec-icon" />
+                <span>Floor-to-Ceiling Thermal Glazing</span>
+              </div>
+              <div className="spec-pill">
+                <CheckIcon className="spec-icon" />
+                <span>IGBC Gold Certified Structure</span>
+              </div>
+              <div className="spec-pill">
+                <CheckIcon className="spec-icon" />
+                <span>Touchless Biometric Access</span>
+              </div>
             </div>
           </div>
 
@@ -182,10 +197,10 @@ export default function ProjectHorizon() {
       <section className="horizon-residences">
         <div className="container">
           <div className="residences-header">
-            <span className="section-subtitle">Floor Plans & Configurations</span>
-            <h2 className="section-title">Crafted For The Discerning Few</h2>
+            <span className="section-subtitle">Configurations</span>
+            <h2 className="section-title">Residences of Distinction</h2>
             <p className="residences-desc">
-              Explore our collection of expansive sky residences designed with functional zoning, generous private terraces, and expansive corner views.
+              Curated sky suites featuring expansive private terraces and uninterrupted panoramic views.
             </p>
           </div>
 
@@ -223,7 +238,7 @@ export default function ProjectHorizon() {
                 <ul className="highlights-list">
                   {floorPlans[selectedPlan].highlights.map((h, i) => (
                     <li key={i}>
-                      <span className="gold-check">✓</span> {h}
+                      <span className="spec-check-icon"><CheckIcon /></span> {h}
                     </li>
                   ))}
                 </ul>
@@ -231,9 +246,7 @@ export default function ProjectHorizon() {
 
               <div className="plan-actions">
                 <a href="#horizon-inquire" className="btn btn-gold">Inquire For Pricing</a>
-                <a href="#brochure-modal" onClick={handleBrochureSubmit} className="btn btn-outline">
-                  Download Floor Plan PDF
-                </a>
+                <a href="#horizon-inquire" className="btn btn-outline">Schedule Preview</a>
               </div>
             </div>
 
@@ -255,20 +268,25 @@ export default function ProjectHorizon() {
       <section className="horizon-amenities-section">
         <div className="container">
           <div className="amenities-intro">
-            <span className="section-subtitle">World-Class Facilities</span>
-            <h2 className="section-title">An Oasis of Unrivaled Privilege</h2>
-            <p className="amenities-subtext">Over 40,000 sq.ft. of curated indoor and alfresco lifestyle amenities exclusively for residents.</p>
+            <span className="section-subtitle">Curated Lifestyle</span>
+            <h2 className="section-title">Private Resident Facilities</h2>
+            <p className="amenities-subtext">Over 40,000 sq.ft. of curated indoor and alfresco club amenities.</p>
           </div>
 
           <div className="amenities-grid-luxury">
-            {horizonAmenities.map((item, idx) => (
-              <div key={idx} className="luxury-amenity-card">
-                <div className="card-icon">{item.icon}</div>
-                <h3 className="card-title">{item.title}</h3>
-                <p className="card-desc">{item.desc}</p>
-                <div className="card-glow" />
-              </div>
-            ))}
+            {horizonAmenities.map((item, idx) => {
+              const Icon = item.IconComponent;
+              return (
+                <div key={idx} className="luxury-amenity-card">
+                  <div className="card-icon-box">
+                    <Icon className="card-svg-icon" />
+                  </div>
+                  <h3 className="card-title">{item.title}</h3>
+                  <p className="card-desc">{item.desc}</p>
+                  <div className="card-glow" />
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -278,9 +296,9 @@ export default function ProjectHorizon() {
         <div className="gallery-top">
           <div>
             <span className="section-subtitle">Visual Tour</span>
-            <h2 className="section-title">Cinematic Glimpses of Horizon</h2>
+            <h2 className="section-title">Architectural Glimpses</h2>
           </div>
-          <p className="gallery-hint">Click any image to view full scale</p>
+          <p className="gallery-hint">Click image to expand</p>
         </div>
 
         <div className="horizon-gallery-grid">
@@ -294,7 +312,7 @@ export default function ProjectHorizon() {
               <div className="gallery-item-overlay">
                 <span className="item-tag">{item.tag}</span>
                 <h4 className="item-title">{item.title}</h4>
-                <span className="item-expand-btn">⤢ View</span>
+                <span className="item-expand-btn">View</span>
               </div>
             </div>
           ))}
@@ -305,32 +323,32 @@ export default function ProjectHorizon() {
       <section className="horizon-booking" id="horizon-inquire">
         <div className="container booking-grid">
           <div className="booking-info">
-            <span className="section-subtitle">Private Showcase</span>
-            <h2 className="section-title">Experience Horizon First-Hand</h2>
+            <span className="section-subtitle">Private Consultation</span>
+            <h2 className="section-title">Experience Horizon</h2>
             <p className="booking-p">
-              Our Senior Private Client Advisors are at your service for personal presentations and exclusive site previews.
+              Our Senior Private Client Advisors are at your service for personal presentations and confidential previews.
             </p>
 
             <div className="booking-contacts">
               <div className="booking-contact-item">
-                <span className="contact-icon">📞</span>
+                <span className="contact-icon-box"><PhoneIcon /></span>
                 <div>
-                  <span className="lbl">Direct Concierge</span>
+                  <span className="lbl">Direct Desk</span>
                   <a href="tel:+917009970071" className="val">+91 70099 70071</a>
                 </div>
               </div>
               <div className="booking-contact-item">
-                <span className="contact-icon">✉️</span>
+                <span className="contact-icon-box"><MailIcon /></span>
                 <div>
                   <span className="lbl">Advisory Email</span>
                   <a href="mailto:horizon@sdmajesta.com" className="val">horizon@sdmajesta.com</a>
                 </div>
               </div>
               <div className="booking-contact-item">
-                <span className="contact-icon">📍</span>
+                <span className="contact-icon-box"><PinIcon /></span>
                 <div>
-                  <span className="lbl">Experience Gallery</span>
-                  <span className="val">SD Majesta Experience Pavilion, Prime Boulevard</span>
+                  <span className="lbl">Gallery</span>
+                  <span className="val">SD Majesta Experience Center, Prime Boulevard</span>
                 </div>
               </div>
             </div>
@@ -339,9 +357,9 @@ export default function ProjectHorizon() {
           <div className="booking-form-wrap">
             {submitted ? (
               <div className="booking-success">
-                <div className="success-mark">✓</div>
+                <div className="success-mark"><CheckIcon /></div>
                 <h3>Inquiry Registered</h3>
-                <p>Thank you. An SD Majesta Private Wealth Advisor will contact you within 2 business hours.</p>
+                <p>An SD Majesta Private Wealth Advisor will contact you shortly.</p>
                 <button onClick={() => setSubmitted(false)} className="btn btn-gold">Submit Another Request</button>
               </div>
             ) : (
@@ -353,7 +371,7 @@ export default function ProjectHorizon() {
                     id="hor-name"
                     type="text"
                     required
-                    placeholder="e.g. Lord Sterling"
+                    placeholder="e.g. Rohan Singhania"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   />
@@ -361,7 +379,7 @@ export default function ProjectHorizon() {
 
                 <div className="input-row">
                   <div className="input-group">
-                    <label htmlFor="hor-phone">Phone Number *</label>
+                    <label htmlFor="hor-phone">Phone *</label>
                     <input
                       id="hor-phone"
                       type="tel"
@@ -372,12 +390,12 @@ export default function ProjectHorizon() {
                     />
                   </div>
                   <div className="input-group">
-                    <label htmlFor="hor-email">Email Address *</label>
+                    <label htmlFor="hor-email">Email *</label>
                     <input
                       id="hor-email"
                       type="email"
                       required
-                      placeholder="sterling@luxury.com"
+                      placeholder="client@luxury.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     />
@@ -385,7 +403,7 @@ export default function ProjectHorizon() {
                 </div>
 
                 <div className="input-group">
-                  <label htmlFor="hor-config">Interested Configuration</label>
+                  <label htmlFor="hor-config">Configuration</label>
                   <select
                     id="hor-config"
                     value={formData.configuration}
@@ -395,17 +413,6 @@ export default function ProjectHorizon() {
                     <option value="4 BHK Imperial Residence">4 BHK Imperial Residence (~3,650 sq.ft.)</option>
                     <option value="5 BHK Sky Penthouse">5 BHK Sky Penthouse (~6,200 sq.ft.)</option>
                   </select>
-                </div>
-
-                <div className="input-group">
-                  <label htmlFor="hor-msg">Notes / Preferences</label>
-                  <textarea
-                    id="hor-msg"
-                    rows="3"
-                    placeholder="Preferred time for a private preview call..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  />
                 </div>
 
                 <button type="submit" className="btn btn-gold btn-full">
