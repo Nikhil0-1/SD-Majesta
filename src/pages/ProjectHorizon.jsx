@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assetPath';
 import {
   PillarIcon,
   PoolIcon,
@@ -97,7 +98,7 @@ export default function ProjectHorizon() {
       <section className="horizon-hero">
         <div className="horizon-hero__bg-wrap">
           <img
-            src="/assets/horizon_facade_1788700744631.jpg"
+            src={getAssetUrl('/assets/horizon_facade_1788700744631.jpg')}
             alt="Horizon by SD Majesta Exterior Facade"
             className="horizon-hero__bg"
           />
@@ -181,7 +182,7 @@ export default function ProjectHorizon() {
 
           <div className="horizon-overview__image-wrapper">
             <img
-              src="/assets/penthouse_living_1788699627316.jpg"
+              src={getAssetUrl('/assets/penthouse_living_1788699627316.jpg')}
               alt="Horizon Penthouse Living"
               className="horizon-overview__img"
             />
@@ -252,7 +253,7 @@ export default function ProjectHorizon() {
 
             <div className="plan-detail-render">
               <img
-                src={selectedPlan === 0 ? '/assets/lobby_interior_1788698961382.jpg' : selectedPlan === 1 ? '/assets/penthouse_living_1788699627316.jpg' : '/assets/horizon_hero_1788698867073.jpg'}
+                src={getAssetUrl(selectedPlan === 0 ? '/assets/lobby_interior_1788698961382.jpg' : selectedPlan === 1 ? '/assets/penthouse_living_1788699627316.jpg' : '/assets/horizon_hero_1788698867073.jpg')}
                 alt={floorPlans[selectedPlan].type}
                 className="plan-render-img"
               />
@@ -308,7 +309,7 @@ export default function ProjectHorizon() {
               className={`gallery-card-item ${idx === 0 ? 'span-two' : ''}`}
               onClick={() => setLightboxImg(item.src)}
             >
-              <img src={item.src} alt={item.title} className="gallery-thumb" />
+              <img src={getAssetUrl(item.src)} alt={item.title} className="gallery-thumb" />
               <div className="gallery-item-overlay">
                 <span className="item-tag">{item.tag}</span>
                 <h4 className="item-title">{item.title}</h4>
@@ -428,7 +429,7 @@ export default function ProjectHorizon() {
       {lightboxImg && (
         <div className="lightbox-backdrop" onClick={() => setLightboxImg(null)}>
           <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
-            <img src={lightboxImg} alt="Enlarged visual" className="lightbox-large-img" />
+            <img src={getAssetUrl(lightboxImg)} alt="Enlarged visual" className="lightbox-large-img" />
             <button className="lightbox-close" onClick={() => setLightboxImg(null)}>✕</button>
           </div>
         </div>

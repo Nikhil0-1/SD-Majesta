@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getAssetUrl } from '../utils/assetPath';
 import './Amenities.css';
 
 const amenities = [
@@ -55,7 +56,7 @@ export default function Amenities() {
             {amenities.map((amenity, i) => (
               <img
                 key={amenity.id}
-                src={amenity.image}
+                src={getAssetUrl(amenity.image)}
                 alt={amenity.title}
                 className={`amenities__image ${i === active ? 'amenities__image--active' : ''}`}
                 loading="lazy"

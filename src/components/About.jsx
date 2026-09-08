@@ -1,3 +1,4 @@
+import { getAssetUrl } from '../utils/assetPath';
 import './About.css';
 
 export default function About() {
@@ -7,7 +8,7 @@ export default function About() {
         <div className="about__image-col">
           <div className="about__image-wrapper">
             <img
-              src="/assets/lobby_interior_1788698961382.jpg"
+              src={getAssetUrl('/assets/lobby_interior_1788698961382.jpg')}
               alt="SD Majesta luxury lobby interior"
               className="about__image"
               loading="lazy"

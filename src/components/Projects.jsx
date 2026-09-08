@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assetPath';
 import './Projects.css';
 
 export default function Projects() {
@@ -17,7 +18,7 @@ export default function Projects() {
           <Link to="/projects/horizon" className="project-card project-card--featured">
             <div className="project-card__image-wrapper">
               <img
-                src="/assets/horizon_facade_1788700744631.jpg"
+                src={getAssetUrl('/assets/horizon_facade_1788700744631.jpg')}
                 alt="Horizon luxury tower facade"
                 className="project-card__image"
                 loading="lazy"

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getAssetUrl } from '../utils/assetPath';
 import './Hero.css';
 
 export default function Hero() {
@@ -14,7 +15,7 @@ export default function Hero() {
     <section className="hero" id="home">
       <div className="hero__image-wrapper">
         <img
-          src="/assets/horizon_hero_1788698867073.jpg"
+          src={getAssetUrl('/assets/horizon_hero_1788698867073.jpg')}
           alt="Horizon luxury tower by SD Majesta"
           className={`hero__image ${loaded ? 'hero__image--loaded' : ''}`}
           loading="eager"

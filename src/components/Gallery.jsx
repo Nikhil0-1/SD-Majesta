@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { getAssetUrl } from '../utils/assetPath';
 import './Gallery.css';
 
 const images = [
@@ -56,7 +57,7 @@ export default function Gallery() {
               aria-label={`View ${img.alt}`}
               onKeyDown={(e) => e.key === 'Enter' && openLightbox(i)}
             >
-              <img src={img.src} alt={img.alt} className="gallery__image" loading="lazy" />
+              <img src={getAssetUrl(img.src)} alt={img.alt} className="gallery__image" loading="lazy" />
               <div className="gallery__item-overlay">
                 <span className="gallery__view">View</span>
               </div>
@@ -69,7 +70,7 @@ export default function Gallery() {
       {lightbox !== null && (
         <div className="lightbox" onClick={closeLightbox} role="dialog" aria-label="Image viewer">
           <div className="lightbox__content" onClick={(e) => e.stopPropagation()}>
-            <img src={filtered[lightbox].src} alt={filtered[lightbox].alt} className="lightbox__image" />
+            <img src={getAssetUrl(filtered[lightbox].src)} alt={filtered[lightbox].alt} className="lightbox__image" />
             <div className="lightbox__controls">
               <button className="lightbox__btn" onClick={prevImage} aria-label="Previous image">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
